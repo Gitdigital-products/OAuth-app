@@ -2,59 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Authenticating... | GitDigital</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | GitDigital Products</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <div id="auth-status" style="text-align: center; margin-top: 20%;">
-        <h2>🔄 Finalizing GitDigital Connection...</h2>
-        <p>Please do not close this window.</p>
-    </div>
+<body class="bg-dark text-light">
 
-    <script>
-        async function handleAuthCallback() {
-            // 1. Extract the 'code' and 'state' from the URL
-            const urlParams = new URLSearchParams(window.location.search);
-            const code = urlParams.get('code');
-            const state = urlParams.get('state');
+    <nav class="nav-container">
+        <div class="logo">GitDigital <span class="badge-sol">SOL</span></div>
+        <div id="user-profile" class="profile-pill">
+            <span id="username">Loading...</span>
+            <img id="avatar" src="" alt="User Avatar" style="display:none;">
+        </div>
+    </nav>
 
-            // 2. Security Check: Verify code exists
-            if (!code) {
-                document.getElementById('auth-status').innerHTML = "<h2>❌ Auth Failed</h2><p>No code found. Redirecting home...</p>";
-                setTimeout(() => window.location.href = "/", 3000);
-                return;
-            }
+    <main class="container">
+        <header class="dashboard-header">
+            <h1>Your Digital Assets</h1>
+            <p>Securely manage your licenses and private repository access.</p>
+        </header>
 
-            try {
-                // 3. Exchange the code for a Token
-                // NOTE: You'll need a backend worker/serverless function here
-                // Because Client Secrets cannot be stored in frontend JS!
-                const response = await fetch('https://your-api-worker.workers.dev/auth', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ code, state })
-                });
+        <div id="product-grid" class="grid">
+            <div class="product-card">
+                <div class="card-status">Active</div>
+                <h3>Solana Automation Suite</h3>
+                <p>High-speed trading and minting scripts.</p>
+                <button class="btn-primary">Download Bundle</button>
+            </div>
+        </div>
+    </main>
 
-                const data = await response.json();
-
-                if (data.token) {
-                    // 4. Save the session (Securely)
-                    sessionStorage.setItem('gitdigital_access_token', data.token);
-                    
-                    // 5. Success! Send them to the product dashboard
-                    window.location.href = "/dashboard";
-                } else {
-                    throw new Error("Invalid token response");
-                }
-            } catch (err) {
-                console.error("Auth Error:", err);
-                document.getElementById('auth-status').innerHTML = "<h2>⚠️ Error</h2><p>Authentication failed. Please try again.</p>";
-            }
-        }
-
-        // Run the function on page load
-        handleAuthCallback();
-    </script>
+    <script src="src/dashboard.js"></script>
 </body>
 </html>
-
