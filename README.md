@@ -1,3 +1,15 @@
+<section id="badge-wall" style="text-align: center; padding: 40px 20px;">
+  <h3>Trusted Infrastructure</h3>
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
+    <img src="https://img.shields.io/badge/Security-Verified-blue?style=for-the-badge" alt="Security">
+    <img src="https://img.shields.io/badge/Uptime-99.9%25-brightgreen?style=for-the-badge" alt="Uptime">
+    <img src="https://img.shields.io/badge/Payments-Solana-9945FF?style=for-the-badge&logo=solana" alt="Solana">
+    <img src="https://img.shields.io/badge/Open_Source-True-black?style=for-the-badge&logo=github" alt="GitHub">
+  </div>
+</section>
+
+
+
 ## 🏆 GitDigital Trust & Tech Stack
 
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
@@ -14,7 +26,10 @@
 ![OAuth2](https://img.shields.io/badge/Auth-OAuth_2.0-eb5424?logo=auth0)
 
 ### 👥 Community & Quality
-![Open Source](https://img.shields.io/badge/Open%20Source-Love-ff69b4?logo=github)
+![Open Source](https://img.shields.io/badge/Open%20Source-Love-f
+
+
+f69b4?logo=github)
 ![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen.svg)
 ![Maintained](https://img.shields.io/badge/Maintained%3F-Yes-green.svg)
 
